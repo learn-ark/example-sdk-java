@@ -6,3 +6,6 @@ In this example:
 - how to create a new transaction
 - how to sign a transaction
 - how to send transaction to ARK Develop Network
+
+
+For more info go to: https://sdk.ark.dev
