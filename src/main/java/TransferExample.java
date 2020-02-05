@@ -12,7 +12,7 @@ import java.util.HashMap;
 /**
  * Simple example of a transfer transaction using
  * java-crypto - https://github.com/ArkEcosystem/java-crypto and
- * java-client - https://github.com/KovacZan/java-client
+ * java-client - https://github.com/ArkEcosystem/java-client
 * */
 public class TransferExample {
 
