@@ -1,1 +1,8 @@
-# Example-sdk-java
+# Example: Basic Usage Of ARK JAVA SDKs
+
+A simple example showing the usage of ARK JAVA SDK packages. 
+
+In this example:
+- how to create a new transaction
+- how to sign a transaction
+- how to send transaction to ARK Develop Network
