@@ -1,4 +1,4 @@
-# Example: Basic Usage Of ARK JAVA SDKs
+# Example: Basic Usage Of ARK JAVA SDK
 
 A simple example showing the usage of ARK JAVA SDK packages. 
 
