@@ -5,10 +5,10 @@ A simple example showing the usage of ARK JAVA SDK packages.
 
 In this example:
 
-- how to query for a wallet and receive the Nonce number
-- how to create a new transaction
-- how to sign a transaction
-- how to send transaction to ARK Develop Network
+- How to query for a wallet and receive the Nonce number
+- How to create a new transaction
+- How to sign a transaction
+- How to send transaction to ARK Develop Network
 
 
 This example uses our SDK Java packages, that can be found at:
