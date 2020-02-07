@@ -4,12 +4,12 @@
 A simple example showing the usage of ARK JAVA SDK packages. 
 
 In this example:
+
+- how to query for a wallet and receive the Nonce number
 - how to create a new transaction
 - how to sign a transaction
 - how to send transaction to ARK Develop Network
 
-
-For more info go to: https://sdk.ark.dev
 
 This example uses our SDK Java packages, that can be found at:
 
@@ -18,3 +18,11 @@ This example uses our SDK Java packages, that can be found at:
 
 
 For the purpose of the example, both SDK packages are build with `gradle fatJar` in the root folders of the repositories above. 
+
+
+For more info go to: 
+- https://learn.ark.dev
+- https://sdk.ark.dev
+- https://api.ark.dev
+
+
