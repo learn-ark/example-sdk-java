@@ -20,7 +20,8 @@ This example uses our SDK Java packages, that can be found at:
 For the purpose of the example, both SDK packages are build with `gradle fatJar` in the root folders of the repositories above. 
 
 
-For more info go to: 
+# For more info go to: 
+
 - https://learn.ark.dev
 - https://sdk.ark.dev
 - https://api.ark.dev
