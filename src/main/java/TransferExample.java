@@ -3,7 +3,7 @@ import org.arkecosystem.client.Connection;
 import org.arkecosystem.crypto.configuration.Network;
 import org.arkecosystem.crypto.networks.Devnet;
 import org.arkecosystem.crypto.transactions.Transaction;
-import org.arkecosystem.crypto.transactions.builder.Transfer;
+import org.arkecosystem.crypto.transactions.builder.MultiPayment;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -18,8 +18,7 @@ public class TransferExample {
 
 
     public static Transaction CreateMultipaymentTransaction(String passphrase, long nonce){
-        Transaction actual =
-                    new MultiPayment()
+        Transaction actual = new MultiPayment()
                             .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 1)
                             .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 2)
                             .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 3)
@@ -27,20 +26,9 @@ public class TransferExample {
                             .sign(passphrase)
                             .nonce(nonce)
                             .transaction;
-    }
-
-    public static Transaction CreateTransferTransaction(int amount, String recipientAddress, String passphrase, long nonce) {
-        // This is where we build out transfer transaction
-        Transaction actual = new Transfer()
-                .recipient(recipientAddress)
-                .amount(amount)
-                .nonce(nonce)
-                .vendorField("Java \uD83D \uDD31 \uD83C \uDF7A")
-                .sign(passphrase)
-                .transaction;
-
         return actual;
     }
+
     public static long getNonce(Connection connection, String senderWallet) throws IOException {
         return Long.valueOf (((LinkedTreeMap<String, Object>) connection.api().wallets.show(senderWallet).get("data")).get("nonce").toString());
     }
@@ -54,39 +42,24 @@ public class TransferExample {
         Network.set(new Devnet());
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("host", "http://137.74.27.246:4003/api/");
+        map.put("host", "167.114.29.51:4003/api/");
         map.put("content-type","application/json");
         Connection connection2 = new Connection(map);
-
-        // This is where we get senders nonce and increment it by one
-        long nonce = getNonce(connection2,senderAddress) + 1;
-
-        ArrayList<HashMap> payload = new ArrayList<>();
-        Transaction transfer1 = CreateTransferTransaction(10,
-                        recipientAddress,
-                        senderPassphrase,
-                        nonce
-                );
-        payload.add(transfer1.toHashMap());
-
-        // This is where we send our transaction to node
-        LinkedTreeMap<String, Object> postResponse = connection2.api().transactions.create(payload);
-        System.out.println(postResponse);
 
         // Sending MultiPayment
         // This is where we get senders nonce and increment it by one
         long nonce = getNonce(connection2,senderAddress) + 1;
 
         ArrayList<HashMap> payload = new ArrayList<>();
-        Transaction multipaymentTransfer = CreateMultipaymentTransaction(
-                        senderPassphrase,
-                        nonce
-                );
-        payload.add(multipaymentTransfer.toHashMap());
+        Transaction transfer1 = CreateMultipaymentTransaction(senderPassphrase, nonce);
+        payload.add(transfer1.toHashMap());
 
         // This is where we send our transaction to node
         LinkedTreeMap<String, Object> postResponse = connection2.api().transactions.create(payload);
         System.out.println(postResponse);
+
+
+
 
     }
 }
