@@ -17,6 +17,18 @@ import java.util.HashMap;
 public class TransferExample {
 
 
+    public static Transaction CreateMultipaymentTransaction(String passphrase, long nonce){
+        Transaction actual =
+                    new MultiPayment()
+                            .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 1)
+                            .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 2)
+                            .addPayment("D8rr7B1d6TL6pf14LgMz4sKp1VBMs6YUYD", 3)
+                            .vendorField("This is a multipayment transaction from Java")
+                            .sign(passphrase)
+                            .nonce(nonce)
+                            .transaction;
+    }
+
     public static Transaction CreateTransferTransaction(int amount, String recipientAddress, String passphrase, long nonce) {
         // This is where we build out transfer transaction
         Transaction actual = new Transfer()
@@ -56,6 +68,21 @@ public class TransferExample {
                         nonce
                 );
         payload.add(transfer1.toHashMap());
+
+        // This is where we send our transaction to node
+        LinkedTreeMap<String, Object> postResponse = connection2.api().transactions.create(payload);
+        System.out.println(postResponse);
+
+        // Sending MultiPayment
+        // This is where we get senders nonce and increment it by one
+        long nonce = getNonce(connection2,senderAddress) + 1;
+
+        ArrayList<HashMap> payload = new ArrayList<>();
+        Transaction multipaymentTransfer = CreateMultipaymentTransaction(
+                        senderPassphrase,
+                        nonce
+                );
+        payload.add(multipaymentTransfer.toHashMap());
 
         // This is where we send our transaction to node
         LinkedTreeMap<String, Object> postResponse = connection2.api().transactions.create(payload);
