@@ -53,7 +53,7 @@ public class MultiPaymentExample {
         // This is where we build our MultiPayment transaction
         Transaction transaction = new MultiPayment()
                 .nonce(nonce)
-                .addPayment(recipient1, 100)
+                .addPayment(recipient1, 100) // amount of arktoshis we want to send
                 .addPayment(recipient2, 200)
                 .addPayment(recipient3, 200)
                 .sign(senderPassphrase)
