@@ -18,7 +18,7 @@ public class TransferExample {
 
 
     public static Transaction CreateTransferTransaction(int amount, String recipientAddress, String passphrase, long nonce) {
-        // This is where we build out transfer transaction
+        // This is where we build our transfer transaction
         Transaction actual = new Transfer()
                 .recipient(recipientAddress)
                 .amount(amount)
