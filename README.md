@@ -19,6 +19,19 @@ This example uses our SDK Java packages, that can be found at:
 
 For the purpose of the example, both SDK packages are build with `gradle fatJar` in the root folders of the repositories above. 
 
+## How to run example
+
+### Transfer Example
+To run transfer example we execute the following:
+```
+gradle transferExample
+```
+
+### MultiPayment Example
+To run MultiPayment example we execute the following:
+```
+gradle multiPaymentExample
+```
 
 # For more info go to: 
 
