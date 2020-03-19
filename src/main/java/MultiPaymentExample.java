@@ -2,8 +2,8 @@ import com.google.gson.internal.LinkedTreeMap;
 import org.arkecosystem.client.Connection;
 import org.arkecosystem.crypto.configuration.Network;
 import org.arkecosystem.crypto.networks.Devnet;
-import org.arkecosystem.crypto.transactions.Transaction;
-import org.arkecosystem.crypto.transactions.builder.MultiPayment;
+import org.arkecosystem.crypto.transactions.builder.MultiPaymentBuilder;
+import org.arkecosystem.crypto.transactions.types.Transaction;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -51,7 +51,7 @@ public class MultiPaymentExample {
 
         // This is where we call our Create method and get our transfer transaction
         // This is where we build our MultiPayment transaction
-        Transaction transaction = new MultiPayment()
+        Transaction transaction = new MultiPaymentBuilder()
                 .nonce(nonce)
                 .addPayment(recipient1, 100) // amount of arktoshis we want to send
                 .addPayment(recipient2, 200)

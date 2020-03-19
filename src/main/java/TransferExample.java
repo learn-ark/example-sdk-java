@@ -2,8 +2,9 @@ import com.google.gson.internal.LinkedTreeMap;
 import org.arkecosystem.client.Connection;
 import org.arkecosystem.crypto.configuration.Network;
 import org.arkecosystem.crypto.networks.Devnet;
-import org.arkecosystem.crypto.transactions.Transaction;
-import org.arkecosystem.crypto.transactions.builder.Transfer;
+import org.arkecosystem.crypto.transactions.builder.TransferBuilder;
+import org.arkecosystem.crypto.transactions.types.Transaction;
+
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class TransferExample {
 
     public static Transaction CreateTransferTransaction(int amount, String recipientAddress, String passphrase, long nonce) {
         // This is where we build our transfer transaction
-        Transaction actual = new Transfer()
+        Transaction actual = new TransferBuilder()
                 .recipient(recipientAddress)
                 .amount(amount)
                 .nonce(nonce)
