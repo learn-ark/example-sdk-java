@@ -24,7 +24,7 @@ public class TransferExample {
                 .recipient(recipientAddress)
                 .amount(amount)
                 .nonce(nonce)
-                .vendorField("Java \uD83D \uDD31 \uD83C \uDF7A") // not necessary to add this
+                .vendorField("Learn-ARK Example Java - Transfer") // not necessary to add this
                 .sign(passphrase)
                 .transaction;
 

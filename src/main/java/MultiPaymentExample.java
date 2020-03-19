@@ -53,7 +53,7 @@ public class MultiPaymentExample {
         // This is where we build our MultiPayment transaction
         MultiPaymentBuilder multiPaymentBuilder = new MultiPaymentBuilder()
                 .nonce(nonce)
-                .vendorField("java MultiPayment example");// not necessary to add this
+                .vendorField("Learn-ARK Example JAVA - Multipayment");// not necessary to add this
 
         // This is where we add additional 64 payments
         for (int i = 0; i < 64; i++) {
