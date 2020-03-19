@@ -53,13 +53,11 @@ public class MultiPaymentExample {
         // This is where we build our MultiPayment transaction
         MultiPaymentBuilder multiPaymentBuilder = new MultiPaymentBuilder()
                 .nonce(nonce)
-                .addPayment(recipient1, 100) // amount of arktoshis we want to send
-                .addPayment(recipient2, 200)
-                .addPayment(recipient3, 200);
+                .vendorField("java MultiPayment example");// not necessary to add this
 
-        // This is where we add additional 61 payments
-        for (int i = 0; i < 61; i++) {
-            multiPaymentBuilder.addPayment(recipient1,1);
+        // This is where we add additional 64 payments
+        for (int i = 0; i < 64; i++) {
+            multiPaymentBuilder.addPayment(recipient1, i+1);// amount of arktoshis we want to send
         }
 
         // Here we sign our transaction
