@@ -18,7 +18,7 @@ task transferExample(type: JavaExec) {
 
 task multiPaymentExample(type: JavaExec) {
     classpath sourceSets.main.runtimeClasspath
-    main = "TransferExample"
+    main = "MultiPaymentExample"
 }
 
 dependencies {
