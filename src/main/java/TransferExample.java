@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class TransferExample {
 
 
-    public static Transaction CreateTransferTransaction(int amount, String recipientAddress, String passphrase, long nonce) {
+    public static Transaction CreateTransferTransaction(long amount, String recipientAddress, String passphrase, long nonce) {
         // This is where we build our transfer transaction
         Transaction actual = new TransferBuilder()
                 .recipient(recipientAddress)
